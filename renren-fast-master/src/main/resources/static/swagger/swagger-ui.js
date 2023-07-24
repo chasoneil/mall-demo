@@ -4,7 +4,7 @@
  * @link http://swagger.io
  * @license Apache-2.0
  */
-(function(){/* jshint ignore:start */ 
+(function(){/* jshint ignore:start */
  {(function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['apikey_auth'] = template({"1":function(container,depth0,helpers,partials,data) {
@@ -685,7 +685,7 @@ templates['resource'] = template({"1":function(container,depth0,helpers,partials
     + ((stack1 = (helpers.sanitize || (depth0 && depth0.sanitize) || helpers.helperMissing).call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.url : depth0),{"name":"sanitize","hash":{},"data":data})) != null ? stack1 : "")
     + "' data-sw-translate>Raw</a>\n    </li>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, options, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, buffer = 
+    var stack1, helper, options, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, buffer =
   "<div class='heading'>\n  <h2>\n    <a href='#!/"
     + ((stack1 = (helpers.sanitize || (depth0 && depth0.sanitize) || alias2).call(alias1,(depth0 != null ? depth0.id : depth0),{"name":"sanitize","hash":{},"data":data})) != null ? stack1 : "")
     + "' class=\"toggleEndpointList\" data-id=\""
@@ -797,7 +797,7 @@ templates['status_code'] = template({"1":function(container,depth0,helpers,parti
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.headers : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "    </tbody>\n  </table>\n</td>";
 },"useData":true});
-})();} 
+})();}
  /* jshint ignore:end */
 'use strict';
 
@@ -18455,7 +18455,7 @@ function isObject(value) {
     return value === Object(value);
 }
 
-// generator related shims
+// product related shims
 
 // FIXME: Remove this function once ES6 generators are in SpiderMonkey.
 function isStopIteration(exception) {
@@ -19341,7 +19341,7 @@ Promise.prototype.spread = function (fulfilled, rejected) {
 };
 
 /**
- * The async function is a decorator for generator functions, turning
+ * The async function is a decorator for product functions, turning
  * them into asynchronous generators.  Although generators are only part
  * of the newest ECMAScript 6 drafts, this code does not cause syntax
  * errors in older engines.  This code should continue to work and will
@@ -19352,19 +19352,19 @@ Promise.prototype.spread = function (fulfilled, rejected) {
  * for longer, but under an older Python-inspired form.  This function
  * works on both kinds of generators.
  *
- * Decorates a generator function such that:
+ * Decorates a product function such that:
  *  - it may yield promises
  *  - execution will continue when that promise is fulfilled
  *  - the value of the yield expression will be the fulfilled value
- *  - it returns a promise for the return value (when the generator
+ *  - it returns a promise for the return value (when the product
  *    stops iterating)
  *  - the decorated function returns a promise for the return value
- *    of the generator or the first rejected promise among those
+ *    of the product or the first rejected promise among those
  *    yielded.
- *  - if an error is thrown in the generator, it propagates through
+ *  - if an error is thrown in the product, it propagates through
  *    every following yield until it is caught, or until it escapes
- *    the generator function altogether, and is translated into a
- *    rejection for the promise returned by the decorated generator.
+ *    the product function altogether, and is translated into a
+ *    rejection for the promise returned by the decorated product.
  */
 Q.async = async;
 function async(makeGenerator) {
@@ -19418,7 +19418,7 @@ function async(makeGenerator) {
 
 /**
  * The spawn function is a small wrapper around async that immediately
- * calls the generator and also ends the promise chain, so that any
+ * calls the product and also ends the promise chain, so that any
  * unhandled errors are thrown instead of forwarded to the error
  * handler. This is useful because it's extremely common to run
  * generators at the top-level to work with libraries.
@@ -19430,14 +19430,14 @@ function spawn(makeGenerator) {
 
 // FIXME: Remove this interface once ES6 generators are in SpiderMonkey.
 /**
- * Throws a ReturnValue exception to stop an asynchronous generator.
+ * Throws a ReturnValue exception to stop an asynchronous product.
  *
- * This interface is a stop-gap measure to support generator return
+ * This interface is a stop-gap measure to support product return
  * values in older Firefox/SpiderMonkey.  In browsers that support ES6
- * generators like Chromium 29, just use "return" in your generator
+ * generators like Chromium 29, just use "return" in your product
  * functions.
  *
- * @param value the return value for the surrounding generator
+ * @param value the return value for the surrounding product
  * @throws ReturnValue exception with the value.
  * @example
  * // ES6 style
@@ -24827,7 +24827,7 @@ SwaggerUi.partials.signature = (function () {
     return result;
   };
   */
-  
+
   var getPrefix = function (name, xml) {
     var result = name || '';
 
@@ -24965,7 +24965,7 @@ SwaggerUi.partials.signature = (function () {
 
     if (namespace) {
       attrs.push(namespace);
-    }   
+    }
 
     if (!properties && !additionalProperties) { return getErrorMessage(); }
 
@@ -25010,10 +25010,10 @@ SwaggerUi.partials.signature = (function () {
     var output, index;
     config = config || {};
     config.modelsToIgnore = config.modelsToIgnore || [];
-   
+
     var descriptor = _.isString($ref) ? getDescriptorByRef($ref, name, models, config)
         : getDescriptor(name, definition, models, config);
-    
+
     if (!descriptor) {
       return getErrorMessage();
     }
@@ -25064,7 +25064,7 @@ SwaggerUi.partials.signature = (function () {
     else {
         name = name || model.name;
     }
-    
+
     if (config.modelsToIgnore.indexOf($ref) > -1) {
       type = 'loop';
       config.loopTo = modelType;
@@ -25075,7 +25075,7 @@ SwaggerUi.partials.signature = (function () {
     if (!model.definition) {
       return null;
     }
-    return new Descriptor(name, type, model.definition, models, config);    
+    return new Descriptor(name, type, model.definition, models, config);
   }
 
   function getDescriptor (name, definition, models, config){
